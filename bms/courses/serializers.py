@@ -56,7 +56,7 @@ class StudentSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("User role must be 'student'.")
         return attrs
     
-class RegisterSerializer(serializers.ModelSerializer):
+class RegistersSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
 
     class Meta:

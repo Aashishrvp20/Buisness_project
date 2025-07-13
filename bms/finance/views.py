@@ -34,7 +34,7 @@ class IncomeList(ListCreateAPIView):
     queryset = Income.objects.all().order_by('-date')
     serializer_class = IncomeSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_class = ExpenseFilter
+    filterset_class = IncomeFilter
     permission_classes = [Manager]
 
 

@@ -44,7 +44,7 @@ class InstructorListCreateView(ListCreateAPIView):
     permission_classes = [Manager]  
 
 class StudentRegisterView(CreateAPIView):
-    serializer_class = RegisterSerializer
+    serializer_class = RegistersSerializer
     permission_classes = [AllowAny]
 
     def post(self, request, *args, **kwargs):
