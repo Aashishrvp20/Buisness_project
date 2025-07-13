@@ -1,6 +1,8 @@
 from rest_framework import serializers
 from .models import User
 from django.contrib.auth.password_validation import validate_password
+from django.contrib.auth.models import Permission
+from .role_permissions import get_role_permissions
 
 class RegisterSerializer(serializers.ModelSerializer):
     password=serializers.CharField(write_only=True, required=True, validators=[validate_password])
@@ -14,16 +16,21 @@ class RegisterSerializer(serializers.ModelSerializer):
         return value
 
     def create(self, validated_data):
+        role=validated_data.get('role', 'staff'),
         user = User.objects.create(
             email=validated_data['email'],
             phone=validated_data.get('phone'),
-            role=validated_data.get('role', 'staff'),
+            role=role
             
             username=validated_data['email'] 
         )
         user.set_password(validated_data['password'])
         user.full_clean()
         user.save()
+        role_permissions = get_role_permissions()
+        permissions = role_permissions.get(role)
+        if permissions:
+            user.user_permissions.set(permissions)
         
         return user
     
