@@ -20,7 +20,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         user = User.objects.create(
             email=validated_data['email'],
             phone=validated_data.get('phone'),
-            role=role
+            role=role,
             
             username=validated_data['email'] 
         )
