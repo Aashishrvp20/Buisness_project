@@ -57,7 +57,8 @@ EXTERNAL_APPS=[
     'django_filters',
     'drf_spectacular',
  'drf_spectacular_sidecar',  
- 'corsheaders'
+ 'corsheaders',
+ 'django_extensions'# help with showing permission just run py manage.py show_permissions
 
     ]
 INSTALLED_APPS+=EXTERNAL_APPS
