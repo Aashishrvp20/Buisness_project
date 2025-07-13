@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
-from rest_framework.generics import CreateAPIView
-from .serializers import RegisterSerializer
+from rest_framework.generics import CreateAPIView,UpdateAPIView
+from .serializers import RegisterSerializer,UserPermissionUpdateSerializer
 from .models import User
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.response import Response
@@ -65,3 +65,9 @@ class LogoutView(APIView):
         response.delete_cookie('access_token')
         response.delete_cookie('refresh_token')
         return response
+
+class UserPermissionUpdateView(UpdateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserPermissionUpdateSerializer
+    permission_classes = [Admin]
+    lookup_field = 'id'

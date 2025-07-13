@@ -1,4 +1,4 @@
-from .views import RegisterView,CookieTokenObtainPairView,LogoutView,UserListView
+from .views import RegisterView,CookieTokenObtainPairView,LogoutView,UserListView,UserPermissionUpdateView
 from rest_framework_simplejwt.views import  TokenRefreshView
 from django.urls import path
 
@@ -8,4 +8,5 @@ urlpatterns = [
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('users/', UserListView.as_view(), name='user-list'),
+    path('users/<int:id>/update-permissions/', UserPermissionUpdateView.as_view(), name='user-update-permissions'),
 ]
