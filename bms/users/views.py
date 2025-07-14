@@ -16,7 +16,7 @@ from .permissions import Admin
 
 
 class RegisterView(CreateAPIView):
-    data= User.objects.all()
+    queryset= User.objects.all()
     serializer_class = RegisterSerializer
 
 

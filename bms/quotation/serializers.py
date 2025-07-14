@@ -6,6 +6,8 @@ class QuotationsSerializer(serializers.ModelSerializer):
         model=Quotations
         fields="__all__" 
         read_only_fields=['amount','invoice_date']
+
+
         
     def validate_rate(self, value):
         if value <= 0:
