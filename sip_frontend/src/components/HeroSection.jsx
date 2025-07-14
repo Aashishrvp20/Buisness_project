@@ -32,10 +32,10 @@ const HeroSection = () => {
       
 
           <h1 className="text-4xl mb-5 font-bold">JaHa Pani, Jahile Pani</h1>
-          <p className="text-gray-600 text-m">
-            Mero Byapar simplifies business for you – smart, efficient, and
+          <NavLink to='student/' className="text-gray-600 text-m">
+            Mero Byapar simplifies business for you – smart, efficient, and </NavLink>
             <br />
-            stress-free. Track sales, manage expenses, maintain ledgers, <br />
+           <p> stress-free. Track sales, manage expenses, maintain ledgers, <br />
             control inventory, and more – all from one easy platform.
           </p>
         </div>

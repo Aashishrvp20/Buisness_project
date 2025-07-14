@@ -11,6 +11,8 @@ import RegisterPage from "./pages/RegisterPage";
 import PartnerPermission from "./components/PartnerPermission";
 import ManagerPermission from "./components/ManagerPermission";
 import SalesPermission from "./components/SalesPermission";
+import StudentPermission from "./components/StudentPermission";
+import EditManagerPermissions from "./components/EditManagerPermissions";
 
 const App = () => {
 
@@ -28,7 +30,9 @@ const App = () => {
         <Route path="/register" element={<RegisterPage/>} />
         <Route path="/partner" element={<PartnerPermission/>} />
         <Route path="/manager" element={<ManagerPermission/>} />
+        <Route path="/editmanager" element={<EditManagerPermissions/>} />
         <Route path="/sales" element={<SalesPermission/>} />
+        <Route path="/student" element={<StudentPermission/>} />
         </Routes>
 
     </div>
